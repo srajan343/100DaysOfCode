@@ -1,0 +1,58 @@
+class stackt
+{
+    int[] arr;
+    int size;
+    int top;
+    stackt(int size)
+    {
+        this.size = size;
+        arr = new int[size];
+        top = -1;
+    }
+    void push(int a)
+    {   
+        if(isFull())
+        {
+            System.out.println("Not Enough Space!");
+            System.exit(1);
+        }
+        arr[++top] = a;
+    }
+    int pop()
+    {
+        if(isEmpty())
+        {
+            System.out.println("Stack Empty");
+            System.exit(1);
+        }
+        return arr[top--];
+    }
+    boolean isFull()
+    {
+        return top == size -1;
+    }
+    boolean isEmpty()
+    {
+        return top == -1;
+    }
+    void display()
+    {
+        for(int i:arr)
+        {
+            System.out.println(i);
+        }
+    }
+}
+public class stack
+{
+    public static void main(String[] args)
+    {
+        stackt s = new stackt(5);
+        s.push(1);
+        s.push(1);
+        s.push(1);
+        s.push(1);
+        s.push(1);
+        s.display();
+    }  
+}
